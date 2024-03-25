@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+  text-decoration: none;
+}
+
+header {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.5rem 5rem;
+}
+
+nav {
+  img {
+    height: 80px;
+    display: block;
+  }
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+}
+
+nav a {
+  color: white;
+  margin-inline: 0.5rem;
+}
+
+.extra {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart .icon {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.cart .number-cart {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: crimson;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.humberger {
+  display: block;
+  cursor: pointer;
+}
+
+.search {
+  font-size: 2rem;
+
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.line {
+  width: 27px;
+  height: 2px;
+  background-color: black;
+}
+
+.line:nth-child(2) {
+  margin-block: 7px;
+}
+
+.line:nth-child(3) {
+  width: 20px;
+  float: right;
+  transition: 0.3s ease;
+}
+
+.humberger:hover .line:nth-child(3) {
+  width: 27px;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  background-color: #ffb936;
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
+}
+
+.content-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background: url(image/decoration-bg-1.png);
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  animation: heroContent 0.7s ease;
+}
+
+@keyframes heroContent {
+  from {
+    left: -1000px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.img-section {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.img-section .rotate {
+  position: absolute;
+
+  animation: RotatesAnim 8s linear infinite;
+}
+
+.one {
+  right: 40%;
+  top: -10%;
+}
+
+.two {
+  bottom: -15%;
+  right: -5%;
+}
+
+@keyframes RotatesAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
