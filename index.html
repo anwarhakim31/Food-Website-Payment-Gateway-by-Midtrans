@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="index.css" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link
@@ -20,16 +21,24 @@
   </head>
   <body>
     <header>
-      <nav>
-        <div class="logo">
+      <div class="logo">
+        <img src="image/logo.png" alt="" />
+      </div>
+
+      <nav class="navbar">
+        <div class="nav-logo">
           <img src="image/logo.png" alt="" />
         </div>
-        <div class="link">
-          <a href="index.html">HOME</a>
-          <a href="">ABOUT</a>
-          <a href="">MENU</a>
-          <a href="">PAGE</a>
-          <a href="">CONTACT</a>
+        <ul class="link">
+          <li><a href="index.html" class="active">HOME</a></li>
+          <li><a href="index.html">ABOUT</a></li>
+          <li><a href="index.html">MENU</a></li>
+          <li><a href="index.html">PAGES</a></li>
+          <li><a href="index.html">CONTACT</a></li>
+        </ul>
+        <div class="close">
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
       </nav>
       <div class="extra">
@@ -49,7 +58,12 @@
 
     <section class="hero">
       <div class="container">
-        <main class="content-section"></main>
+        <main class="content-section">
+          <h1>
+            UNFORGETTABLE BURGERS,<br />
+            UNFORGETTABLE MEMORIES
+          </h1>
+        </main>
         <div class="img-section">
           <div class="rotate one">
             <svg
@@ -65,7 +79,14 @@
               ></path>
             </svg>
           </div>
-
+          <div class="circle one">
+            <img src="image/circle-fill-4.png" alt="" />
+          </div>
+          <div class="circle two">
+            <img src="image/circle-fill-4.png" alt="" />
+          </div>
+          <div class="back-parallax" data-value="5"></div>
+          <div class="parallax" data-value="1"></div>
           <div class="rotate two">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,5 +105,6 @@
       </div>
     </section>
     <section class="about"></section>
+    <script src="script.js"></script>
   </body>
 </html>

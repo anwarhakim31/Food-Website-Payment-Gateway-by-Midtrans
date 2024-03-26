@@ -15,22 +15,74 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3.5rem 5rem;
+  padding: 3.5rem 5%;
 }
 
 nav {
+  width: 50%;
+  display: flex;
+  margin-right: 180px;
   img {
     height: 80px;
     display: block;
   }
-  display: flex;
-  align-items: center;
-  gap: 7rem;
 }
 
-nav a {
+nav .nav-logo {
+  display: none;
+}
+
+nav .link {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.link li {
+  margin: 0 5px;
+  list-style: none;
+  display: flex;
+}
+
+.link li a {
   color: white;
-  margin-inline: 0.5rem;
+  margin-inline: 0.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 2px;
+  font-size: 0.9rem;
+  transform: scale(0.9, 1.3);
+}
+
+.link li a.active::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: white;
+  transition: 0.4s ease;
+}
+
+.link li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: white;
+  transition: 0.4s ease;
+}
+
+.link a:hover::before {
+  width: 100%;
+}
+
+.nav .nav-close {
+  display: none;
 }
 
 .extra {
@@ -55,16 +107,16 @@ nav a {
   right: 0;
   background-color: crimson;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   display: grid;
   place-items: center;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   color: white;
 }
 
 .humberger {
-  display: block;
+  display: none;
   cursor: pointer;
 }
 
@@ -98,6 +150,7 @@ nav a {
 .hero {
   width: 100%;
   height: 100vh;
+
   position: relative;
 }
 
@@ -107,13 +160,14 @@ nav a {
   width: inherit;
   height: inherit;
   overflow: hidden;
+  max-height: 900px;
 }
 
 .content-section {
   position: absolute;
   top: 0;
   left: 0;
-  width: 55%;
+  width: 52%;
   height: 100%;
   background: url(image/decoration-bg-1.png);
   z-index: 1;
@@ -121,6 +175,12 @@ nav a {
   background-repeat: no-repeat;
   background-position: right;
   animation: heroContent 0.7s ease;
+  color: white;
+  padding: 3rem 5%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
 }
 
 @keyframes heroContent {
@@ -138,6 +198,20 @@ nav a {
   top: 0;
   width: 100%;
   height: 100%;
+  animation: imgSection 1s ease;
+  user-select: none;
+}
+
+@keyframes imgSection {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .img-section .rotate {
@@ -162,5 +236,127 @@ nav a {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.parallax {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(image/parallax-img-5-copyright-600x495.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  z-index: 1;
+}
+
+.back-parallax {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+
+  background: url(image/parallax-img-5-back.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.circle {
+  position: absolute;
+}
+
+.circle.one {
+  top: -100px;
+  right: -200px;
+}
+
+.circle.two {
+  bottom: -300px;
+  right: 20%;
+}
+
+.circle img {
+  height: 500px;
+}
+
+@media (max-width: 990px) {
+  html {
+    font-size: 90%;
+  }
+
+  .humberger {
+    display: block;
+    transition: 0.3s ease;
+  }
+
+  nav {
+    position: fixed;
+    right: -500px;
+    top: -1500px;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+    gap: 2rem;
+    justify-content: start;
+    padding-top: 5rem;
+    background-color: #171a21;
+    z-index: 99;
+    opacity: 0;
+    transition: right 0.5s ease-in-out;
+  }
+
+  .navbar.show {
+    right: 0;
+    top: 0;
+    opacity: 1;
+  }
+
+  nav .link {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+    gap: 2rem;
+  }
+
+  nav .nav-logo {
+    display: block;
+    img {
+      height: 75px;
+    }
+  }
+  nav .close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    transition: all 0.3s ease;
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .close .bar {
+    width: 27px;
+    height: 3px;
+    background-color: white;
+  }
+  .close .bar:first-child {
+    transform: rotate(45deg) translateY(2px);
+  }
+  .close .bar:last-child {
+    transform: rotate(-45deg) translateY(-2px);
+  }
+
+  nav .close:hover {
+    transform: rotate(180deg);
+  }
+  .parallax {
+    background-size: 350px;
+    z-index: 1;
   }
 }
