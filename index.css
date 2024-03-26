@@ -180,7 +180,7 @@ nav .link {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
-  animation: heroContent 0.2s ease in;
+  animation: heroContent 0.4s ease;
   color: white;
   padding: 5rem 5% 0;
   display: flex;
@@ -347,7 +347,7 @@ nav .link {
 .online-shop {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .card {
@@ -523,6 +523,109 @@ nav .link {
   object-position: center;
 }
 
+.sponsor {
+  padding: 1rem 5% 5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.grid .box {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  opacity: 0.5;
+  img {
+    object-fit: cover;
+  }
+}
+
+.grid .box:hover {
+  opacity: 1;
+}
+
+.thumbnail {
+  padding: 2.5rem 0;
+}
+
+.containers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 360px 360px;
+  gap: 0 0;
+  grid-template-areas:
+    "lg-6-1  lg-6-1 sm-6-1 sm-6-2"
+    "lg-6-1  lg-6-1 sm-6-3 sm-6-4";
+}
+
+.lg-6-1 {
+  grid-area: lg-6-1;
+}
+
+.sm-6-1 {
+  grid-area: sm-6-1;
+}
+
+.sm-6-2 {
+  grid-area: sm-6-2;
+}
+
+.sm-6-3 {
+  grid-area: sm-6-3;
+}
+
+.sm-6-4 {
+  grid-area: sm-6-4;
+}
+
+.thumb-img {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.5s ease;
+  }
+}
+
+.thumbnail img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1100px) {
+  .containers {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 250px 250px 250px;
+    grid-template-areas:
+      "lg-1 md-1"
+      "lg-1 md-2"
+      "lg-2 lg-3"
+      "lg-2 lg-3";
+  }
+
+  .lg-1 {
+    grid-area: lg-1;
+  }
+  .lg-2 {
+    grid-area: lg-2;
+  }
+  .lg-3 {
+    grid-area: lg-3;
+  }
+  .md-1 {
+    grid-area: md-1;
+  }
+  .md-2 {
+    grid-area: md-2;
+  }
+}
+
 @media (max-width: 990px) {
   html {
     font-size: 90%;
@@ -601,6 +704,16 @@ nav .link {
   }
   .back-parallax {
     background-size: 450px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+  }
+
+  .grid .box {
+    display: grid;
+    place-items: center;
   }
 }
 
@@ -745,7 +858,7 @@ nav .link {
   .online-shop {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    gap: 1rem;
+    gap: 3rem;
   }
 
   .promo {
@@ -755,6 +868,41 @@ nav .link {
   .about .row {
     flex-wrap: wrap;
   }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+  }
+
+  .grid .box {
+    display: grid;
+    place-items: center;
+  }
+
+  .containers {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 250px 250px;
+    grid-template-areas:
+      "md1 md2"
+      "md3 md4"
+      "md5 md5";
+  }
+
+  .md1 {
+    grid-area: md1;
+  }
+  .md2 {
+    grid-area: md2;
+  }
+  .md3 {
+    grid-area: md3;
+  }
+  .md4 {
+    grid-area: md4;
+  }
+  .md5 {
+    grid-area: md5;
+  }
 }
 
 @media (max-width: 576px) {
@@ -762,7 +910,7 @@ nav .link {
     font-size: 70%;
   }
   .content-section {
-    animation: heroContent 0s ease;
+    animation: heroContent 0.1s ease;
   }
   .content-section {
     height: 60%;
