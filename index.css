@@ -174,9 +174,9 @@ nav .link {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
-  animation: heroContent 0.7s ease;
+  animation: heroContent 0.2s ease in;
   color: white;
-  padding: 3rem 5%;
+  padding: 5rem 5% 0;
   display: flex;
   align-items: start;
   justify-content: center;
@@ -192,24 +192,64 @@ nav .link {
   }
 }
 
+.content-section h1 {
+  font-size: 3.2vw;
+  transform: scale(1, 1.3);
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+  width: 90%;
+  margin: 3rem 0;
+  justify-content: space-between;
+}
+
+.box {
+  width: 33.333333%;
+}
+
+.box i {
+  font-size: 5rem;
+  color: #ffb936;
+  user-select: none;
+  font-weight: 300;
+}
+
+.box i:hover {
+  color: white;
+}
+
+.box p {
+  color: #b2b2b2;
+
+  margin: 1rem 0;
+}
+
+.content-section a {
+  padding: 1rem 1.5rem;
+  color: white;
+  background-color: #ec3d08;
+
+  border-radius: 2px;
+}
+
 .img-section {
   position: absolute;
   right: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  animation: imgSection 1s ease;
+  animation: imgSection 0.8s linear;
   user-select: none;
 }
 
 @keyframes imgSection {
-  0% {
+  from {
     opacity: 0;
   }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
+  to {
     opacity: 1;
   }
 }
@@ -248,8 +288,18 @@ nav .link {
   background-image: url(image/parallax-img-5-copyright-600x495.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 70%;
+  background-size: 75%;
   z-index: 1;
+  animation: parallax 5s ease;
+}
+
+@keyframes parallax {
+  form {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .back-parallax {
@@ -358,5 +408,174 @@ nav .link {
   .parallax {
     background-size: 350px;
     z-index: 1;
+  }
+  .back-parallax {
+    background-size: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+
+  .content-section {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    transform: translateY(100%);
+    background: url(image/decoration-bg-3.png);
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    animation: heroContent 0.7s ease;
+    color: white;
+    padding: 5rem 5%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .content-section h1 {
+    font-size: 3.2vw;
+    transform: scale(1, 1.3);
+    font-weight: 600;
+  }
+
+  .row {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    width: 90%;
+    margin: 2rem 0;
+  }
+  .box {
+    width: 33.333333%;
+  }
+  .box i {
+    font-size: 5rem;
+    color: #ffb936;
+    user-select: none;
+    font-weight: 300;
+  }
+
+  .box i:hover {
+    color: white;
+  }
+
+  .box p {
+    color: #b2b2b2;
+
+    margin: 1rem 0;
+  }
+
+  .content-section a {
+    padding: 1rem 1.5rem;
+    color: white;
+    background-color: #ec3d08;
+
+    border-radius: 2px;
+  }
+
+  .img-section {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+    animation: imgSection 1s ease;
+    user-select: none;
+  }
+
+  .img-section .rotate {
+    position: absolute;
+
+    animation: RotatesAnim 8s linear infinite;
+  }
+
+  .one {
+    right: -100px;
+    top: -10%;
+  }
+
+  .two {
+    bottom: -15%;
+    right: 600px;
+  }
+
+  .parallax {
+    position: absolute;
+    right: 0;
+
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(image/parallax-img-5-copyright-600x495.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    z-index: 1;
+  }
+
+  .back-parallax {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    background: url(image/parallax-img-5-back.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+
+  .circle {
+    position: absolute;
+  }
+
+  .circle.one {
+    top: -100px;
+    left: -100px;
+  }
+
+  .circle.two {
+    bottom: -200px;
+    right: -100px;
+  }
+
+  .circle img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 70%;
+  }
+  .content-section {
+    height: 55%;
+    transform: translateY(90%);
+  }
+  .content-section h1 {
+    font-size: 5vw;
+  }
+  .row {
+    display: flex;
+
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  .box {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    gap: 1rem;
   }
 }
