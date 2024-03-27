@@ -83,3 +83,5 @@ shop.addEventListener("mousemove", function (e) {
 
   shopPx.style.transform = `translateX(${x}px) translateY(${y}px)`;
 });
+
+console.log(food);
