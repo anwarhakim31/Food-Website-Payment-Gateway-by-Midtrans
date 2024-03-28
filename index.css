@@ -918,6 +918,7 @@ nav .link {
   height: 100%;
   object-fit: contain;
   display: block;
+  user-select: none;
 }
 
 .slide .contents {
@@ -943,10 +944,16 @@ nav .link {
   width: 100%;
   height: 300px;
   background-color: #ffb936;
-  display: flex;
-  align-items: center;
+
   gap: 3rem;
   margin-top: 5rem;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .subscribe .text {
@@ -993,4 +1000,112 @@ nav .link {
 
 .aggre {
   margin-top: 0.5rem;
+}
+
+footer {
+  padding: 2rem 5%;
+  background-color: #171a21;
+  display: flex;
+  flex-direction: column;
+}
+footer .top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid #b2b2b2;
+}
+
+.fobox {
+  width: 150px;
+}
+
+.burgery {
+  color: white;
+}
+
+.burgery p {
+  margin-top: 0.5rem;
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+}
+
+.support h2 {
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.support a {
+  display: inline-block;
+  font-size: 1rem;
+  color: white;
+  padding: 0.35rem 0;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: white;
+}
+
+.phone .number {
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+  i {
+    color: #ffb936;
+    font-size: 1.2rem;
+  }
+}
+
+.Email .mail {
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+  i {
+    color: #ffb936;
+    font-size: 1.2rem;
+  }
+}
+
+.addres-social {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: white;
+}
+
+.addres .adres {
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+  i {
+    color: #ffb936;
+    font-size: 1.2rem;
+  }
+}
+
+.social .media {
+  padding: 0.5rem 0;
+  display: flex;
+  i {
+    color: #ffb936;
+    font-size: 1.2rem;
+  }
+  a:last-child {
+    padding: 0 0.5rem;
+  }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  margin-top: 1rem;
 }
