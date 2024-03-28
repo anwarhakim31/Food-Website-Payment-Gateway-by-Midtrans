@@ -122,7 +122,17 @@
   .shop {
     width: 100%;
     height: 100%;
-    padding: 1rem 5% 20rem;
+    padding: 1rem 5% 5rem;
+  }
+  .subscribe .text {
+    flex: 1 1 40rem;
+    height: 80px;
+    h1 {
+      font-size: 1.5rem;
+      color: #171a21;
+
+      margin: auto;
+    }
   }
 }
 
@@ -326,6 +336,27 @@
       padding: 0.5rem 0;
     }
   }
+
+  .subscribe {
+    flex-wrap: wrap;
+  }
+  .subscribe .text {
+    flex: 1 1 40rem;
+    height: 10px;
+
+    h1 {
+      font-size: 4vw;
+      color: #171a21;
+
+      margin: 0;
+    }
+  }
+  .process {
+    background: url(image/decoration-bg-1.png);
+  }
+  .subscribe form {
+    height: 10px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -382,14 +413,27 @@
   .sm5 {
     grid-area: sm5;
   }
-  .shop {
-    width: 100%;
-    height: 100%;
-    padding: 1rem 5% 25rem;
-  }
+
   .process .intro h1 {
     font-size: 5vw;
     transform: scale(1, 1.2);
     margin-top: 1rem;
+  }
+  .product .info {
+    height: 25px;
+  }
+  .subscribe {
+    gap: 0;
+  }
+  .subscribe .text {
+    flex: 1 1 40rem;
+    height: 10px;
+
+    h1 {
+      font-size: 5vw;
+      color: #171a21;
+
+      margin: 0;
+    }
   }
 }

@@ -19,6 +19,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header>
@@ -312,17 +316,76 @@
         <source src="video/a-cinematic-b-roll-burger.mp4" type="video/mp4" />
       </video>
       <div class="content">
-        <h1>PROCESSING WE MAKE BURGERY</h1>
+        <h1>OUR PROCESS OF MAKING BURGERY</h1>
       </div>
     </section>
 
     <section class="blog max">
       <span>BLOG & ARTICLES</span>
       <h1>LATEST NEWS</h1>
-      <div class="sliders">
-        <div class="slide"></div>
+      <div class="swiper sliders">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide">
+            <div class="blog-img">
+              <img src="image/blog/img-113-copyright-890x664.jpeg" alt="" />
+            </div>
+            <div class="contents">
+              <h3>What is the difference between hamburgers & burgers</h3>
+              <p>April 1, 2024</p>
+            </div>
+          </div>
+          <div class="swiper-slide slide">
+            <div class="blog-img">
+              <img src="image/blog/img-4-copyright.jpeg" alt="" />
+            </div>
+            <div class="contents">
+              <h3>Secret Sauce: Creating the Ultimate Burger Sauce at Home</h3>
+              <p>April 1, 2024</p>
+            </div>
+          </div>
+          <div class="swiper-slide slide">
+            <div class="blog-img">
+              <img src="image/blog/img-64-copyright-890x664.jpeg" alt="" />
+            </div>
+            <div class="contents">
+              <h3>What is the difference between hamburgers & burgers</h3>
+              <p>April 1, 2024</p>
+            </div>
+          </div>
+          <div class="swiper-slide slide">
+            <div class="blog-img">
+              <img src="image/blog/img-82-copyright-890x664.jpeg" alt="" />
+            </div>
+            <div class="contents">
+              <h3>10 The Most Unusual Ways to Serve Burgers in Restaurants</h3>
+              <p>April 1, 2024</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="swiper-pagination"></div>
     </section>
+
+    <section class="subscribe">
+      <div class="text">
+        <h1>SUBSCRIBE FOR EXCLUSIVE UPDATES AND HOT OFFERS!</h1>
+      </div>
+      <form>
+        <div class="input">
+          <input type="text" />
+          <button>
+            <i class="ph ph-paper-plane-tilt"></i>
+            subscribe
+          </button>
+        </div>
+        <div class="aggre">
+          <input type="checkbox" name="aggre" id="check" />
+          I aggre to the Privacy Policy
+        </div>
+      </form>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="product.js"></script>
     <script src="script.js"></script>
   </body>

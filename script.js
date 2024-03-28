@@ -152,3 +152,25 @@ function template(food) {
             <strong>Rp<span class="price">. ${food.price}</span></strong>
           </div>`;
 }
+var swiper = new Swiper(".sliders", {
+  loop: true,
+  grabCursor: true,
+  spaceBetween: 10,
+  slidesPerView: 1,
+  spaceBetween: 50,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+  },
+});
