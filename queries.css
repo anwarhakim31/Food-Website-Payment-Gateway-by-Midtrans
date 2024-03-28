@@ -393,11 +393,3 @@
     margin-top: 1rem;
   }
 }
-
-@media (min-width: 1401px) {
-  .shop-contains {
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
-  }
-}
