@@ -644,6 +644,7 @@ nav .link {
   position: relative;
   background-color: #ffb936;
   min-height: 150vh;
+  overflow: hidden;
 }
 
 .shop {
@@ -655,7 +656,7 @@ nav .link {
 .shops-parallax {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background-image: url(image/background-shop.png);
   background-size: cover;
   background-position: top;
@@ -803,4 +804,89 @@ nav .link {
 .product strong {
   color: #ffb936;
   font-weight: 700;
+}
+
+.slogan {
+  width: 100%;
+  height: 80vh;
+  background-color: #ffb936;
+  display: flex;
+  padding: 0 5%;
+  position: relative;
+}
+
+.slogan .slogan-img {
+  flex: 1 1 40rem;
+}
+
+.slogan .slogan-img .main-img img {
+  width: 100%;
+  height: 100%;
+  object-position: top;
+  object-fit: contain;
+}
+
+.slogan .slogan-text {
+  flex: 1 1 40rem;
+  padding: 2rem;
+  color: white;
+}
+
+.slogan-text {
+  span {
+    font-weight: 800;
+  }
+  h1 {
+    font-size: 3vw;
+    padding: 1rem 0;
+  }
+  p {
+    padding: 1rem 0;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    color: white;
+    background-color: #ec3d08;
+    font-weight: 700;
+    border-radius: 2px;
+  }
+}
+
+.video {
+  width: 100%;
+  height: 70vh;
+  background-color: #171a21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  padding: 50px;
+  z-index: 1;
+  overflow: hidden;
+}
+.video .main-video {
+  min-width: 100%;
+
+  min-height: 100%;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: -1;
+}
+
+.video .content {
+  font-size: 2vw;
+  position: absolute;
+  color: white;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #171a21;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

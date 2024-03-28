@@ -74,15 +74,15 @@ cursorDiv(gbox3, c3);
 cursorDiv(gbox4, c4);
 cursorDiv(gbox5, c5);
 
-// const shop = document.querySelector(".shop");
-// const shopPx = document.querySelector(".shops-parallax");
+const shop = document.querySelector(".shop");
+const shopPx = document.querySelector(".shops-parallax");
 
-// shop.addEventListener("mousemove", function (e) {
-//   let x = (e.clientX * 1) / 100;
-//   let y = (e.clientY * 1) / 100;
+shop.addEventListener("mousemove", function (e) {
+  let x = (e.clientX * 1) / 100;
+  let y = (e.clientY * 1) / 100;
 
-//   shopPx.style.transform = `translateX(${x}px) translateY(${y}px)`;
-// });
+  shopPx.style.transform = `translateX(${x}px) translateY(${y}px)`;
+});
 
 const container = document.querySelector(".shop-contains");
 const snackBtn = document.querySelector(".snackbtn");

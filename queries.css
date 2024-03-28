@@ -308,6 +308,24 @@
   .shop-contains {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
+
+  .slogan {
+    padding: 0 5% 70rem;
+    flex-wrap: wrap;
+  }
+
+  .slogan-text {
+    span {
+      font-weight: 800;
+    }
+    h1 {
+      font-size: 3rem;
+      padding: 0.5rem 0;
+    }
+    p {
+      padding: 0.5rem 0;
+    }
+  }
 }
 
 @media (max-width: 576px) {
