@@ -74,14 +74,81 @@ cursorDiv(gbox3, c3);
 cursorDiv(gbox4, c4);
 cursorDiv(gbox5, c5);
 
-const shop = document.querySelector(".shop");
-const shopPx = document.querySelector(".shops-parallax");
+// const shop = document.querySelector(".shop");
+// const shopPx = document.querySelector(".shops-parallax");
 
-shop.addEventListener("mousemove", function (e) {
-  let x = (e.clientX * 1) / 100;
-  let y = (e.clientY * 1) / 100;
+// shop.addEventListener("mousemove", function (e) {
+//   let x = (e.clientX * 1) / 100;
+//   let y = (e.clientY * 1) / 100;
 
-  shopPx.style.transform = `translateX(${x}px) translateY(${y}px)`;
+//   shopPx.style.transform = `translateX(${x}px) translateY(${y}px)`;
+// });
+
+const container = document.querySelector(".shop-contains");
+const snackBtn = document.querySelector(".snackbtn");
+const foodBtn = document.querySelector(".foodbtn");
+const drinkBtn = document.querySelector(".bevaragebtn");
+const button = document.querySelectorAll(".btn");
+
+function foodProduct() {
+  let product = "";
+  food.forEach((food) => {
+    product += template(food);
+  });
+
+  container.innerHTML = product;
+}
+foodProduct();
+
+drinkBtn.addEventListener("click", function () {
+  checkClass(button);
+  container.innerHTML = "";
+  let product = "";
+  drinkBtn.classList.add("active");
+  drink.forEach((food) => {
+    product += template(food);
+  });
+
+  container.innerHTML = product;
 });
 
-console.log(food);
+snackBtn.addEventListener("click", function () {
+  checkClass(button);
+  container.innerHTML = "";
+  let product = "";
+  snackBtn.classList.add("active");
+  snack.forEach((food) => {
+    product += template(food);
+  });
+
+  container.innerHTML = product;
+});
+
+foodBtn.addEventListener("click", function () {
+  checkClass(button);
+  foodProduct();
+  foodBtn.classList.add("active");
+});
+
+function checkClass(button) {
+  button.forEach((btn) => {
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+    }
+  });
+}
+
+function template(food) {
+  return ` <div class="product">
+            <div class="product-img">
+              <img src="${food.img}" alt="" />
+              <div class="toggle">
+                <i class="ph ph-eye detail-product"></i>
+                <i class="ph ph-shopping-bag detail-cart"></i>
+              </div>
+            </div>
+            <h3 class="title">${food.title}</h3>
+            <p class="info">${food.info}</p>
+            <strong>Rp<span class="price">. ${food.price}</span></strong>
+          </div>`;
+}

@@ -635,19 +635,21 @@ nav .link {
 
 .process {
   width: 100%;
-  height: 160vh;
+  height: 100%;
+
   background: url(image/decoration-bg-4.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   position: relative;
   background-color: #ffb936;
-  overflow: hidden;
+  min-height: 150vh;
 }
 
 .shop {
   width: 100%;
   height: 100%;
+  padding: 1rem 5% 12rem;
 }
 
 .shops-parallax {
@@ -664,6 +666,7 @@ nav .link {
 
 .shop-choose {
   margin: 1rem;
+  user-select: none;
 }
 .shop-choose button {
   padding: 0.75rem 1rem;
@@ -677,7 +680,13 @@ nav .link {
   font-weight: 600;
   cursor: pointer;
 }
-.shop .intro {
+
+.shop-choose .btn.active {
+  pointer-events: none;
+  background-color: #ffb936;
+}
+
+.process .intro {
   padding: 3rem 5%;
   color: white;
   width: 100%;
@@ -696,26 +705,23 @@ nav .link {
   }
 }
 .shop-contains {
-  position: absolute;
   z-index: 9;
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   justify-items: center;
   justify-content: center;
-  top: 250px;
-  right: 0;
   padding: 0 5%;
-  gap: 1rem;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  right: auto; /* Me-reset right agar tidak berdampak di atas 1400px */
+  gap: 2rem;
+
+  right: 0;
 }
+
 .product {
   display: flex;
   flex-direction: column;
   width: 220px;
+  cursor: default;
   color: white;
 }
 
@@ -763,6 +769,11 @@ nav .link {
   width: 220px;
   height: 200px;
   display: block;
+  transition: 0.3s ease;
+}
+
+.product:hover .product-img img {
+  transform: scale(1.1);
 }
 
 .product .title {
@@ -770,6 +781,9 @@ nav .link {
   text-transform: uppercase;
   font-weight: 800;
   width: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .product .info {
