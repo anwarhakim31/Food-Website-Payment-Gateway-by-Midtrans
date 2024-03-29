@@ -97,66 +97,77 @@ const foodBtn = document.querySelector(".foodbtn");
 const drinkBtn = document.querySelector(".bevaragebtn");
 const button = document.querySelectorAll(".btn");
 
-function foodProduct() {
-  let product = "";
-  food.forEach((food) => {
-    product += template(food);
-  });
+// function foodProduct() {
+//   let product = "";
+//   food.forEach((food) => {
+//     product += template(food);
 
-  container.innerHTML = product;
-}
-foodProduct();
+//   });
+//   container.innerHTML = product;
+// }
+// foodProduct();
 
-drinkBtn.addEventListener("click", function () {
-  checkClass(button);
-  container.innerHTML = "";
-  let product = "";
-  drinkBtn.classList.add("active");
-  drink.forEach((food) => {
-    product += template(food);
-  });
+// drinkBtn.addEventListener("click", function () {
+//   checkClass(button);
+//   container.innerHTML = "";
+//   let product = "";
+//   drinkBtn.classList.add("active");
+//   drink.forEach((food) => {
+//     product += template(food);
+//   });
 
-  container.innerHTML = product;
-});
+//   container.innerHTML = product;
+// });
 
-snackBtn.addEventListener("click", function () {
-  checkClass(button);
-  container.innerHTML = "";
-  let product = "";
-  snackBtn.classList.add("active");
-  snack.forEach((food) => {
-    product += template(food);
-  });
-  container.innerHTML = product;
-});
+// snackBtn.addEventListener("click", function () {
+//   checkClass(button);
+//   container.innerHTML = "";
+//   let product = "";
+//   snackBtn.classList.add("active");
+//   snack.forEach((food) => {
+//     product += template(food);
+//   });
+//   container.innerHTML = product;
+// });
 
-foodBtn.addEventListener("click", function () {
-  checkClass(button);
-  foodProduct();
-  foodBtn.classList.add("active");
-});
+// foodBtn.addEventListener("click", function () {
+//   checkClass(button);
+//   // foodProduct();
 
-function checkClass(button) {
-  button.forEach((btn) => {
-    if (btn.classList.contains("active")) {
-      btn.classList.remove("active");
-    }
-  });
-}
+//   foodBtn.classList.add("active");
+// });
+
+// function checkClass(button) {
+//   button.forEach((btn) => {
+//     if (btn.classList.contains("active")) {
+//       btn.classList.remove("active");
+//     }
+//   });
+// }
 
 const cart = document.querySelector(".cart");
 const cartBar = document.querySelector(".cart-bar");
 const cartClose = document.querySelector(".close-cart");
+const Listcart = document.querySelector(".col2");
+const bodycart = document.querySelector(".body-cart");
+const notCart = document.querySelector(".col1");
 
 cart.addEventListener("click", function () {
   cartBar.classList.add("show");
+  if (bodycart.firstElementChild.nextElementSibling !== null) {
+    Listcart.classList.add("active");
+    notCart.classList.add("hidden");
+  } else {
+    Listcart.classList.remove("active");
+    notCart.classList.remove("hidden");
+  }
 });
 
 cartClose.addEventListener("click", function () {
   cartBar.classList.remove("show");
 });
 
-document.querySelector("click", function (e) {
+document.addEventListener("click", function (e) {
   if (!cartBar.contains(e.target) && !cart.contains(e.target)) {
     cartBar.classList.remove("show");
   }
@@ -226,7 +237,7 @@ function template(food) {
             </div>
             <h3 class="title">${food.title}</h3>
             <p class="info">${food.info}</p>
-            <strong>Rp<span class="price">. ${food.price}</span></strong>
+            <strong><span class="price">${rupiah(food.price)}</span></strong>
           </div>`;
 }
 
