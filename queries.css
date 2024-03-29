@@ -40,7 +40,7 @@
     position: fixed;
     right: -500px;
     top: -1500px;
-    width: 250px;
+    width: 350px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -84,8 +84,8 @@
     padding: 0.5rem;
   }
   .close .bar {
-    width: 27px;
-    height: 3px;
+    width: 21px;
+    height: 2px;
     background-color: white;
   }
   .close .bar:first-child {
@@ -153,7 +153,22 @@
   html {
     font-size: 80%;
   }
-
+  .line {
+    width: 20px;
+    height: 2px;
+    background-color: black;
+  }
+  .humberger:hover .line:nth-child(3) {
+    width: 20px;
+  }
+  .line:nth-child(3) {
+    width: 15px;
+    float: right;
+    transition: 0.3s ease;
+  }
+  .line:nth-child(2) {
+    margin-block: 5px;
+  }
   .content-section {
     position: absolute;
     left: 0;
@@ -381,8 +396,27 @@
 }
 
 @media (max-width: 576px) {
+  nav {
+    width: 60%;
+  }
   html {
     font-size: 70%;
+  }
+  .line {
+    width: 15px;
+    height: 2px;
+    background-color: black;
+  }
+  .humberger:hover .line:nth-child(3) {
+    width: 15px;
+  }
+  .line:nth-child(3) {
+    width: 10px;
+    float: right;
+    transition: 0.3s ease;
+  }
+  .line:nth-child(2) {
+    margin-block: 3px;
   }
   .content-section {
     animation: heroContent 0.1s ease;

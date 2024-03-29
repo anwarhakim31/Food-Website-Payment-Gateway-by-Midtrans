@@ -144,6 +144,36 @@ function checkClass(button) {
   });
 }
 
+const cart = document.querySelector(".cart");
+const cartBar = document.querySelector(".cart-bar");
+const cartClose = document.querySelector(".close-cart");
+
+cart.addEventListener("click", function () {
+  cartBar.classList.add("show");
+});
+
+cartClose.addEventListener("click", function () {
+  cartBar.classList.remove("show");
+});
+
+document.querySelector("click", function (e) {
+  if (!cartBar.contains(e.target) && !cart.contains(e.target)) {
+    cartBar.classList.remove("show");
+  }
+});
+
+const searchArea = document.querySelector(".search-area");
+const searchClose = document.querySelector(".search-close");
+const search = document.querySelector(".search");
+
+search.addEventListener("click", function () {
+  searchArea.classList.add("show");
+});
+
+searchClose.addEventListener("click", function () {
+  searchArea.classList.remove("show");
+});
+
 const modalDetail = document.querySelector(".modal-detail");
 
 document.addEventListener("click", function (e) {

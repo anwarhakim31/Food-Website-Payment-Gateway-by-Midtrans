@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="queries.css" />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -23,6 +23,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
   <body>
     <header>
@@ -49,7 +50,7 @@
       <div class="extra">
         <div class="cart">
           <span class="material-symbols-outlined icon"> shopping_bag </span>
-          <div class="number-cart">1</div>
+          <div class="number-cart">0</div>
         </div>
 
         <i class="ph ph-magnifying-glass search"></i>
@@ -430,10 +431,12 @@
           <div class="social">
             <h2>FOLLOW US</h2>
             <div class="media">
-              <a href="www.instagram.com"
+              <a href="https://www.instagram.com/"
                 ><i class="ph ph-instagram-logo"></i
               ></a>
-              <a href="www.facebook.com"><i class="ph ph-facebook-logo"></i></a>
+              <a href="https://www.facebook.com/"
+                ><i class="ph ph-facebook-logo"></i
+              ></a>
             </div>
           </div>
         </div>
@@ -448,7 +451,46 @@
       <i class="ph ph-arrow-line-up"></i>
     </section>
 
+    <section class="cart-bar">
+      <div class="rows">
+        <i class="ph ph-x close-cart"></i>
+        <div class="col1">
+          <span class="material-symbols-outlined icon"> shopping_bag </span>
+          <p>No products in the cart.</p>
+        </div>
+        <div class="col2">
+          <ul class="body-cart">
+            <li class="product-cart">
+              <div class="img-cart">
+                <img src="/image/product/product-1.png" alt="" />
+              </div>
+              <div class="text-cart">
+                <h3>FISH BURGER</h3>
+                <h5>Rp.<span>6000</span></h5>
+              </div>
+              <i class="ph ph-trash trash-cart"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="modal-detail"></section>
+
+    <div class="search-area">
+      <div class="rows">
+        <div class="top">
+          <img class="search-img" src="image/logo.png" alt="" />
+          <i class="ph ph-x search-close"></i>
+        </div>
+        <div class="bottom">
+          <form>
+            <input type="text" />
+            <i class="ph ph-magnifying-glass"></i>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="product.js"></script>
