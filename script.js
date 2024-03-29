@@ -29,6 +29,13 @@ close.addEventListener("click", function () {
   humberger.style.opacity = "1";
 });
 
+document.addEventListener("click", function (e) {
+  if (!navbar.contains(e.target) && !humberger.contains(e.target)) {
+    navbar.classList.remove("show");
+    humberger.style.opacity = "1";
+  }
+});
+
 const gbox1 = document.querySelector(".gbox1");
 const gbox2 = document.querySelector(".gbox2");
 const gbox3 = document.querySelector(".gbox3");
