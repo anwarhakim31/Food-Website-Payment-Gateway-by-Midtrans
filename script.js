@@ -120,7 +120,6 @@ snackBtn.addEventListener("click", function () {
   snack.forEach((food) => {
     product += template(food);
   });
-
   container.innerHTML = product;
 });
 
@@ -138,8 +137,49 @@ function checkClass(button) {
   });
 }
 
+const modalDetail = document.querySelector(".modal-detail");
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("detail-product")) {
+    modalDetail.classList.add("show");
+    const product = e.target.closest(".product");
+    const title = product.querySelector(".title").textContent;
+    const info = product.querySelector(".info").textContent;
+    const price = product.querySelector(".price").textContent;
+    const img = product.querySelector("img").src;
+    const imgSrc = img.replace("http://127.0.0.1:5500", "");
+
+    const modal = modalTemplate(title, info, price, imgSrc);
+
+    modalDetail.innerHTML = modal;
+  }
+});
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("modal-close")) {
+    modalDetail.classList.remove("show");
+  }
+});
+
+const toTop = document.querySelector(".toTop");
+const body = document.querySelector("body");
+
+toTop.addEventListener("click", function () {
+  window.scrollTo(0, 0);
+});
+
+window.addEventListener("scroll", function () {
+  let scrollPostion = window.scrollY;
+
+  if (scrollPostion >= window.innerHeight * 0.01) {
+    toTop.classList.add("show");
+  } else {
+    toTop.classList.remove("show");
+  }
+});
+
 function template(food) {
-  return ` <div class="product">
+  return ` <div class="product" data-id="${food.id}">
             <div class="product-img">
               <img src="${food.img}" alt="" />
               <div class="toggle">
@@ -152,6 +192,24 @@ function template(food) {
             <strong>Rp<span class="price">. ${food.price}</span></strong>
           </div>`;
 }
+
+function modalTemplate(title, info, price, imgSrc) {
+  return ` <div class="modal-card">
+        <div class="detail-img">
+          <img src="${imgSrc}" alt="" />
+        </div>
+        <div class="content-detail">
+          <h1 class="modal-title">${title}</h1>
+          <p>
+            ${info}
+          </p>
+          <h3>Rp<span>${price}</span></h3>
+          <button>Buy</button>
+        </div>
+        <i class="ph ph-x modal-close"></i>
+      </div>`;
+}
+
 var swiper = new Swiper(".sliders", {
   loop: true,
   grabCursor: true,
