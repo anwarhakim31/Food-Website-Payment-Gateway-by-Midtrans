@@ -187,7 +187,7 @@ Nama : ${obj.name}
 Email : ${obj.email}
 Phone : ${obj.phone}
 
-Data Pesananan : ${JSON.parse(obj.items).map(
+Data Pesananan :\n${JSON.parse(obj.items).map(
     (item) => `${item.title} (${item.quantity} x ${rupiah(item.total)})\n`
   )}
 Total : ${rupiah(obj.total)}`;
