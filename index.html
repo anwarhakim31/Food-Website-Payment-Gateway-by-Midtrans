@@ -130,14 +130,15 @@
         </div>
       </div>
     </section>
-    <section class="detail max">
+
+    <section class="detail max" x-data="products">
       <div class="online-shop">
         <div class="foods card">
           <img src="image/detail/pngegg (2).png" alt="" />
           <div class="text">
             <h3>food</h3>
             <p>Lorem ipsum dolor</p>
-            <a>Buy Online</a>
+            <a href="#shop">Buy Online</a>
           </div>
         </div>
         <div class="snack card">
@@ -145,7 +146,7 @@
           <div class="text">
             <h3>Snack</h3>
             <p>Lorem ipsum dolor sit amet.</p>
-            <a>Buy Online</a>
+            <a href="#shop">Buy Online</a>
           </div>
         </div>
         <div class="bevarage card">
@@ -153,7 +154,7 @@
           <div class="text">
             <h3>Bevarage</h3>
             <p>Lorem ipsum dolor sit amet.</p>
-            <a>Buy Online</a>
+            <a href="#shop">Buy Online</a>
           </div>
         </div>
       </div>
@@ -281,7 +282,7 @@
       </div>
     </section>
 
-    <section class="process" x-data="products" x-init="showFood()">
+    <section id="shop" class="process" x-data="products" x-init="showFood()">
       <div class="shops-parallax"></div>
       <div class="shop">
         <div class="intro">
@@ -319,10 +320,12 @@
                 <img :src="`${item.img}`" :alt="item.title" />
                 <div class="toggle">
                   <i class="ph ph-eye detail-product"></i>
-                  <i
-                    class="ph ph-shopping-bag detail-cart"
+                  <span
+                    class="material-symbols-outlined detail-cart"
                     @click="$store.cart.add(item)"
-                  ></i>
+                  >
+                    shopping_bag
+                  </span>
                 </div>
               </div>
               <h3 class="title" x-text="item.title"></h3>
@@ -498,6 +501,7 @@
     <section class="cart-bar" x-data>
       <div class="rows">
         <i class="ph ph-x close-cart"></i>
+
         <div class="col1">
           <span class="material-symbols-outlined icon"> shopping_bag </span>
           <p>No products in the cart.</p>
@@ -526,6 +530,37 @@
                 </div>
               </li>
             </template>
+            <h4 class="subtotal">
+              Total : <span x-text="rupiah($store.cart.total)"></span>
+            </h4>
+            <form action="" class="customer" x-show="$store.cart.items.length">
+              <input
+                type="hidden"
+                name="items"
+                x-model="JSON.stringify($store.cart.items)"
+              />
+              <input type="hidden" name="total" x-model="$store.cart.total" />
+              <label for="name">
+                <span>Name</span>
+                <input type="text" name="name" id="name" />
+              </label>
+              <label for="email">
+                <span>Email</span>
+                <input type="text" name="email" id="email" />
+              </label>
+              <label for="phone">
+                <span>Phone</span>
+                <input type="number" name="phone" id="phone" />
+              </label>
+              <button
+                type="submit"
+                class="checkout-btn disable"
+                id="checkout-btn"
+                value="Checkout"
+              >
+                Checkout
+              </button>
+            </form>
           </ul>
         </div>
       </div>

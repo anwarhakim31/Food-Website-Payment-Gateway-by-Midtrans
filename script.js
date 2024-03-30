@@ -151,10 +151,53 @@ const cartClose = document.querySelector(".close-cart");
 const Listcart = document.querySelector(".col2");
 const bodycart = document.querySelector(".body-cart");
 const notCart = document.querySelector(".col1");
+const checkoutbtn = document.querySelector(".checkout-btn");
+const form = document.querySelector(".customer");
+
+checkoutbtn.disabled = true;
+
+form.addEventListener("keyup", function () {
+  for (let i = 0; i < form.elements.length; i++) {
+    if (form.elements[i].value.length !== 0) {
+      checkoutbtn.classList.add("disable");
+    } else {
+      return false;
+    }
+  }
+  checkoutbtn.disabled = false;
+  checkoutbtn.classList.remove("disable");
+});
+
+checkoutbtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const formdata = new FormData(form);
+  const data = new URLSearchParams(formdata);
+  const objData = Object.fromEntries(data);
+  const message = formMessage(objData);
+  window.open(
+    "https://wa.me/6281310635243?text=" + encodeURIComponent(message)
+  );
+});
+
+//kirim ke WA
+
+const formMessage = (obj) => {
+  return `Data Customer \n
+Nama : ${obj.name}
+Email : ${obj.email}
+Phone : ${obj.phone}
+
+Data Pesananan : ${JSON.parse(obj.items).map(
+    (item) => `${item.title} (${item.quantity} x ${rupiah(item.total)})\n`
+  )}
+Total : ${rupiah(obj.total)}`;
+};
 
 cart.addEventListener("click", function () {
   cartBar.classList.add("show");
-  if (bodycart.firstElementChild.nextElementSibling !== null) {
+
+  const liElement = bodycart.querySelector("li");
+  if (liElement !== null) {
     Listcart.classList.add("active");
     notCart.classList.add("hidden");
   } else {
