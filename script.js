@@ -168,15 +168,59 @@ form.addEventListener("keyup", function () {
   checkoutbtn.classList.remove("disable");
 });
 
-checkoutbtn.addEventListener("click", function (e) {
+checkoutbtn.addEventListener("click", async function (e) {
   e.preventDefault();
   const formdata = new FormData(form);
   const data = new URLSearchParams(formdata);
   const objData = Object.fromEntries(data);
+
+  // fetch("php/placeOrder.php", {
+  //   method: "POST",
+  //   body: data,
+  // })
+  //   .then((response) => {
+  //     return response.text();
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+
   const message = formMessage(objData);
   window.open(
     "https://wa.me/6281310635243?text=" + encodeURIComponent(message)
   );
+  try {
+    const response = await fetch("php/Order.php", {
+      method: "POST",
+      body: data,
+    });
+    const token = await response.text();
+    console.log(token);
+
+    window.snap.pay(token, {
+      onSuccess: function (result) {
+        /* You may add your own implementation here */
+        alert("payment success!");
+      },
+      onPending: function (result) {
+        /* You may add your own implementation here */
+        alert("wating your payment!");
+      },
+      onError: function (result) {
+        /* You may add your own implementation here */
+        alert("payment failed!");
+      },
+      onClose: function () {
+        /* You may add your own implementation here */
+        alert("you closed the popup without finishing the payment");
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 //kirim ke WA
@@ -188,7 +232,7 @@ Email : ${obj.email}
 Phone : ${obj.phone}
 
 Data Pesananan :\n${JSON.parse(obj.items).map(
-    (item) => `${item.title} (${item.quantity} x ${rupiah(item.total)})\n`
+    (item) => `${item.name} (${item.quantity} x ${rupiah(item.total)})\n`
   )}
 Total : ${rupiah(obj.total)}`;
 };
@@ -278,26 +322,26 @@ function template(food) {
                 <i class="ph ph-shopping-bag detail-cart"></i>
               </div>
             </div>
-            <h3 class="title">${food.title}</h3>
+            <h3 class="title">${food.name}</h3>
             <p class="info">${food.info}</p>
             <strong><span class="price">${rupiah(food.price)}</span></strong>
           </div>`;
 }
 
-function modalTemplate(title, info, price, imgSrc) {
+function modalTemplate(name, info, price, imgSrc) {
   return ` <div class="modal-card">
         <div class="detail-img">
           <img src="${imgSrc}" alt="" />
         </div>
         <div class="content-detail">
-          <h1 class="modal-title">${title}</h1>
+          <h1 class="modal-title">${name}</h1>
           <p>
             ${info}
           </p>
-          <h3>Rp<span>${price}</span></h3>
-          <button>Buy</button>
+          <h3><span>${price}</span></h3>
+          <button @click="$store.cart.add(item)">Buy</button>
         </div>
-        <i class="ph ph-x modal-close"></i>
+  
       </div>`;
 }
 
